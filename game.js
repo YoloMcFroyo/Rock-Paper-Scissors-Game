@@ -1,4 +1,3 @@
-
 // for(let i = 0; i < 5 ; i++){
 //   const userInput = getHumanChoice();
 //   const computerInput = getComputerChoice();
@@ -7,14 +6,34 @@
 //   console.log("Results:", compare(userInput, computerInput));
 // }
 
+// use == when you want "undefined == null" to be true
+
+let playerPoints = 6;
+let computerPoints = 2;
+
+function recordWin(){
+  playerPoints++;
+  displayScore();
+}
+
+function recordLoss(){
+  computerPoints++;
+  displayScore();
+}
+
+function displayScore(){
+  const container = document.querySelector("#score-section");
+  const score = document.createElement("div");
+  score.innerHTML = `<span style="color: green;">${playerPoints}</span> - <span style="color: red;">${computerPoints}</span>`;
+  container.appendChild(score);
+}
+
 function getComputerChoice(){
   const choice = Math.random();
   if(choice < 0.33) return "rock";
   else if(choice < 0.66) return "paper";
   else return "scissors";
 }
-
-// use == when you want "undefined == null" to be true
 
 function getHumanChoice(){
   let choice = prompt("rock, paper, or scissors?").toLowerCase();
@@ -65,3 +84,5 @@ function compare(playerInput, computerChoice){
       }
   }
 }
+
+displayScore();
