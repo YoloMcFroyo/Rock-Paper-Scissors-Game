@@ -1,0 +1,32 @@
+body{
+  background-color: rgb(23, 0, 40);
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/67bb0f23-a725-47a4-a032-20d84c1a1482/dar38p1-1dadae78-4e41-49f0-ae92-9270cb2f60cb.png/v1/fill/w_1600,h_900,q_80,strp/retrowave_background_by_hayny_dar38p1-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvNjdiYjBmMjMtYTcyNS00N2E0LWEwMzItMjBkODRjMWExNDgyXC9kYXIzOHAxLTFkYWRhZTc4LTRlNDEtNDlmMC1hZTkyLTkyNzBjYjJmNjBjYi5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.5IgeIPny7f471I8WP6cCul0ro4xjV1CE9WvupE3wTBQ');
+}
+
+#player-UI {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 30vw;
+  background-color: rgb(41, 41, 41);
+  border-color: cyan;
+  border-width: 2px;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#player-inputs{
+  display: flex;
+  width: 300px;
+  height: 300px;
+  background-color: chocolate;
+}
+
+.selection{
+  width: 80px;
+  height: 80px;
+  color: crimson;
+}

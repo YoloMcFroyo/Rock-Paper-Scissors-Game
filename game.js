@@ -1,11 +1,11 @@
 
-for(let i = 0; i < 5 ; i++){
-  const userInput = getHumanChoice();
-  const computerInput = getComputerChoice();
-  console.log("player choice:", userInput);
-  console.log("computer choice:", computerInput);
-  console.log("Results:", compare(userInput, computerInput));
-}
+// for(let i = 0; i < 5 ; i++){
+//   const userInput = getHumanChoice();
+//   const computerInput = getComputerChoice();
+//   console.log("player choice:", userInput);
+//   console.log("computer choice:", computerInput);
+//   console.log("Results:", compare(userInput, computerInput));
+// }
 
 function getComputerChoice(){
   const choice = Math.random();
