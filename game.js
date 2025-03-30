@@ -8,79 +8,105 @@
 
 // use == when you want "undefined == null" to be true
 
-let playerPoints = 6;
-let computerPoints = 2;
+let playerPoints = 0;
+let computerPoints = 0;
 
-function recordWin(){
+document.querySelectorAll(".selection").forEach((button) => {
+  button.addEventListener("click", playGame);
+});
+
+function playGame(e) {
+  const playerChoice = e.target.getAttribute("data-choice");
+  const computerChoice = getComputerChoice();
+  const results = gameResults(playerChoice, computerChoice);
+  if (results === "win") {
+    playerPoints++;
+  } else if (results === "lose") {
+    computerPoints++;
+  }
+  displayResults(playerChoice, computerChoice);
+  displayScore();
+}
+
+function recordWin() {
   playerPoints++;
   displayScore();
 }
 
-function recordLoss(){
+function recordLoss() {
   computerPoints++;
   displayScore();
 }
 
-function displayScore(){
-  const container = document.querySelector("#score-section");
-  const score = document.createElement("div");
-  score.innerHTML = `<span style="color: green;">${playerPoints}</span> - <span style="color: red;">${computerPoints}</span>`;
-  container.appendChild(score);
+function displayResults(playerChoice, computerChoice) {
+  const resultsSection = document.querySelector("#results-section");
+  const resultsDiv = document.createElement("div");
+  resultsDiv.innerText = `${playerChoice} - ${computerChoice}`;
+  resultsDiv.style.fontSize = "larger";
+  resultsDiv.style.color = "white";
+  resultsSection.appendChild(resultsDiv);
 }
 
-function getComputerChoice(){
+function displayScore() {
+  const playerScoreCard = document.querySelector("#playerScoreCard");
+  const score = document.createElement("div");
+  score.innerText = playerPoints;
+  score.style.fontSize = "4em";
+  score.style.color = "white";
+  playerScoreCard.appendChild(score);
+
+  const computerScoreCard = document.querySelector("#computerScoreCard");
+  const computerScore = document.createElement("div");
+  computerScore.innerText = computerPoints;
+  computerScore.style.fontSize = "4em";
+  computerScore.style.color = "white";
+  computerScoreCard.appendChild(computerScore);
+}
+
+function getComputerChoice() {
   const choice = Math.random();
-  if(choice < 0.33) return "rock";
-  else if(choice < 0.66) return "paper";
+  if (choice < 0.33) return "rock";
+  else if (choice < 0.66) return "paper";
   else return "scissors";
 }
 
-function getHumanChoice(){
+function getHumanChoice() {
   let choice = prompt("rock, paper, or scissors?").toLowerCase();
-  while(choice !== "rock" && choice !== "paper" && choice !== "scissors"){
+  while (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
     choice = prompt("ERROR: choose ONLY 'rock', 'paper', or 'scissors'").toLowerCase();
   }
   return choice;
 }
 
-function compare(playerInput, computerChoice){
-  switch(playerInput){
-    case "rock": 
-      if(computerChoice === "rock")
-      {
-        return "tie";
+function gameResults(playerInput, computerChoice) {
+  switch (playerInput) {
+    case "rock":
+      if (computerChoice === "rock") {
+        return "draw";
       }
-      else if(computerChoice === "paper")
-      {
-        return "loser! xD";
-      }else
-      {
-        return "winner!";
+      else if (computerChoice === "paper") {
+        return "lose";
+      } else {
+        return "win";
       }
     case "paper":
-      if(computerChoice === "rock")
-      {
-        return "winner!";
+      if (computerChoice === "rock") {
+        return "win";
       }
-      else if(computerChoice === "paper")
-      {
-        return "tie";
-      }else
-      {
-        return "loser! xD";
+      else if (computerChoice === "paper") {
+        return "draw";
+      } else {
+        return "lose";
       }
 
     case "scissors":
-      if(computerChoice === "rock")
-      {
-        return "loser! xD";
+      if (computerChoice === "rock") {
+        return "lose";
       }
-      else if(computerChoice === "paper")
-      {
-        return "winner!";
-      }else
-      {
-        return "tie";
+      else if (computerChoice === "paper") {
+        return "win";
+      } else {
+        return "draw";
       }
   }
 }

@@ -1,6 +1,57 @@
-body{
+body {
   background-color: rgb(23, 0, 40);
   background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/67bb0f23-a725-47a4-a032-20d84c1a1482/dar38p1-1dadae78-4e41-49f0-ae92-9270cb2f60cb.png/v1/fill/w_1600,h_900,q_80,strp/retrowave_background_by_hayny_dar38p1-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvNjdiYjBmMjMtYTcyNS00N2E0LWEwMzItMjBkODRjMWExNDgyXC9kYXIzOHAxLTFkYWRhZTc4LTRlNDEtNDlmMC1hZTkyLTkyNzBjYjJmNjBjYi5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.5IgeIPny7f471I8WP6cCul0ro4xjV1CE9WvupE3wTBQ');
+}
+
+#player-UI {
+  padding: 2em;
+}
+
+:root {
+  --font-size: 2em;
+}
+
+h1 {
+  display: block;
+  position: relative;
+  font-size: var(--font-size);
+  background: linear-gradient(to bottom, #00f2ff 0%, #e2fbff 50%, #0a343f 51%, #0094f7 100%);
+  background-blend-mode: multiply;
+  background-size: var(--font-size);
+  background-repeat: repeat;
+  line-height: 1;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: .05em;
+}
+
+p::before {
+  background: none;
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  /* background-image: url('https://i.imgur.com/Ym9HCsT.gif'); */
+  background-blend-mode: screen;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.5;
+}
+
+p::after {
+  background: none;
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-shadow: 1px -1px 0 rgba(255, 255, 255, 0.5),
+    3px 1px 3px rgba(255, 0, 255, 0.85),
+    -3px -2px 3px rgba(0, 0, 255, 0.85),
+    1px -2px 0 rgba(255, 255, 255, 0.8);
+  z-index: -2;
 }
 
 #player-UI {
@@ -18,29 +69,98 @@ body{
   transform: translate(-50%, -50%);
 }
 
-#score-section{
+#top-section {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
   flex-grow: 1;
   border-color: rgb(253, 0, 194);
-  border-width: 2px;
-  border-style: solid;
 }
 
-.selection{
-  width: 80px;
-  height: 80px;
+.top-cards {
+  flex: 0 1 20%;
+  flex-direction: column;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: right;
+  border-width: 2px;
+  border-style: solid;
+  border-color: cyan;
+}
+
+#title-card {
+  font-size: larger;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  justify-content: center;
+  margin-right: auto;
+}
+
+.scorecard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap');
+
+.retro-text {
+  font-family: 'Lobster Two', serif;
+  /* Stylish, retro font */
+  font-size: 1em;
+  /* Responsive font size */
+  position: relative;
+  /* Enables use of z-index */
+  color: #ffffff;
+  /* Primary color of the text */
+  text-shadow: -.4px .4px 0 #0038f0,
+    /* Orange shadow */
+    -.75px .75px 0 #000000,
+    /* Pink shadow */
+    -1px 1px 0 #67cee8;
+  /* Dark blue shadow */
+  transform: skewX(-10deg);
+  /* Skew the text on the X-axis */
+  transition: all 0.5s ease;
+  /* Smooth transition for hover effects */
+  z-index: 2;
+  /* Ensures text is layered above any potential background or border */
+}
+
+.selection {
+  width: 7em;
+  height: 7em;
   color: crimson;
 }
 
-#input-section{
+#lower-section {
+  display: flex;
   flex-grow: 1;
   border-color: rgb(81, 220, 0);
   border-width: 2px;
   border-style: solid;
+  align-items: stretch;
+  justify-content: space-evenly;
 }
 
-#results-section{
+.interactions {}
+
+#input-section {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  border-color: rgb(255, 157, 0);
+  border-color: rgb(81, 220, 0);
   border-width: 2px;
   border-style: solid;
+  align-items: center;
+  justify-content: center;
+}
+
+#results-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
