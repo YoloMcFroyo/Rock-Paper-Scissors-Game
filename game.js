@@ -40,16 +40,33 @@ function displayResults(playerChoice, computerChoice) {
   const resultsSection = document.querySelector("#results-section");
   const resultsDiv = document.createElement("div");
   resultsDiv.id = "resultsDiv";
-  if(playerChoice && computerChoice){
+  if (playerChoice && computerChoice) {
     resultsDiv.innerText = `${playerChoice} - ${computerChoice}`;
-  }else{
+  } else {
     resultsDiv.innerText = " - ";
   }
-  resultsDiv.style.fontSize = "larger";
+  resultsDiv.style.fontSize = "1.5em";
   resultsDiv.style.color = "white";
+  resultsDiv.style.fontFamily = "Arial, sans-serif";
+  resultsDiv.style.marginTop = "5px";
   resultsSection.appendChild(resultsDiv);
+
+  const prevResult = document.querySelector("#game-result");
+  if (prevResult) {
+    prevResult.remove();
+  }
   const outcome = document.createElement("div");
-  outcome.innerText = placeholder;
+  outcome.id = "game-result";
+  if (playerChoice && computerChoice) {
+    outcome.innerText = gameResults(playerChoice, computerChoice);
+  } else {
+    outcome.innerText = placeholder;
+  }
+  outcome.style.fontSize = "1.5em";
+  outcome.style.color = "white";
+  outcome.style.fontFamily = "Arial, sans-serif";
+  outcome.style.marginTop = "20px";
+  resultsSection.appendChild(outcome);
 }
 
 function displayScore() {
@@ -99,7 +116,7 @@ function gameResults(playerInput, computerChoice) {
   switch (playerInput) {
     case "rock":
       if (computerChoice === "rock") {
-        return "draw";
+        return "tie";
       }
       else if (computerChoice === "paper") {
         return "lose";
@@ -111,11 +128,10 @@ function gameResults(playerInput, computerChoice) {
         return "win";
       }
       else if (computerChoice === "paper") {
-        return "draw";
+        return "tie";
       } else {
         return "lose";
       }
-
     case "scissors":
       if (computerChoice === "rock") {
         return "lose";
@@ -123,7 +139,7 @@ function gameResults(playerInput, computerChoice) {
       else if (computerChoice === "paper") {
         return "win";
       } else {
-        return "draw";
+        return "tie";
       }
   }
 }
