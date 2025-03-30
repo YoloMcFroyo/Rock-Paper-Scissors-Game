@@ -1,15 +1,9 @@
-// for(let i = 0; i < 5 ; i++){
-//   const userInput = getHumanChoice();
-//   const computerInput = getComputerChoice();
-//   console.log("player choice:", userInput);
-//   console.log("computer choice:", computerInput);
-//   console.log("Results:", compare(userInput, computerInput));
-// }
-
 // use == when you want "undefined == null" to be true
 
 let playerPoints = 0;
 let computerPoints = 0;
+const placeholder = " ";
+
 
 document.querySelectorAll(".selection").forEach((button) => {
   button.addEventListener("click", playGame);
@@ -39,24 +33,47 @@ function recordLoss() {
 }
 
 function displayResults(playerChoice, computerChoice) {
+  const prevResults = document.querySelector("#resultsDiv");
+  if (prevResults) {
+    prevResults.remove();
+  }
   const resultsSection = document.querySelector("#results-section");
   const resultsDiv = document.createElement("div");
-  resultsDiv.innerText = `${playerChoice} - ${computerChoice}`;
+  resultsDiv.id = "resultsDiv";
+  if(playerChoice && computerChoice){
+    resultsDiv.innerText = `${playerChoice} - ${computerChoice}`;
+  }else{
+    resultsDiv.innerText = " - ";
+  }
   resultsDiv.style.fontSize = "larger";
   resultsDiv.style.color = "white";
   resultsSection.appendChild(resultsDiv);
+  const outcome = document.createElement("div");
+  outcome.innerText = placeholder;
 }
 
 function displayScore() {
+  // previous div with score needs to be removed to avoid multiple elements
+  const prevPlayerScore = document.getElementById("playerCurrScore");
+  if (prevPlayerScore) {
+    prevPlayerScore.remove();
+  }
   const playerScoreCard = document.querySelector("#playerScoreCard");
   const score = document.createElement("div");
+  score.id = "playerCurrScore";
   score.innerText = playerPoints;
   score.style.fontSize = "4em";
   score.style.color = "white";
   playerScoreCard.appendChild(score);
 
+
+  const prevComputerScore = document.getElementById("computerCurrentScore");
+  if (prevComputerScore) {
+    prevComputerScore.remove()
+  }
   const computerScoreCard = document.querySelector("#computerScoreCard");
   const computerScore = document.createElement("div");
+  computerScore.id = "computerCurrentScore";
   computerScore.innerText = computerPoints;
   computerScore.style.fontSize = "4em";
   computerScore.style.color = "white";
@@ -112,3 +129,4 @@ function gameResults(playerInput, computerChoice) {
 }
 
 displayScore();
+displayResults();
