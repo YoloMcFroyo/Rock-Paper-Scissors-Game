@@ -1,0 +1,174 @@
+body {
+  background-color: rgb(23, 0, 40);
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/67bb0f23-a725-47a4-a032-20d84c1a1482/dar38p1-1dadae78-4e41-49f0-ae92-9270cb2f60cb.png/v1/fill/w_1600,h_900,q_80,strp/retrowave_background_by_hayny_dar38p1-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvNjdiYjBmMjMtYTcyNS00N2E0LWEwMzItMjBkODRjMWExNDgyXC9kYXIzOHAxLTFkYWRhZTc4LTRlNDEtNDlmMC1hZTkyLTkyNzBjYjJmNjBjYi5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.5IgeIPny7f471I8WP6cCul0ro4xjV1CE9WvupE3wTBQ');
+}
+
+:root {
+  --font-size: 2em;
+}
+
+h1 {
+  display: block;
+  position: relative;
+  font-size: var(--font-size);
+  font-family: 'Lobster Two', serif;
+  color: #ffffff;
+  text-shadow: -2px 2px 0 #0038f0,
+               -4px 4px 0 #000000,
+               -6px 6px 0 #67cee8; 
+  margin: 0.1em;
+  font-size: 2.5em;
+  transform: skewX(-10deg); 
+}
+
+p::before {
+  font-family: 'Lobster Two', serif; 
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  color: #ffffff;
+  text-shadow: -1px 1px 0 rgba(255, 255, 255, 0.5),
+               -3px 3px 3px rgba(255, 0, 255, 0.85),
+               -5px 5px 3px rgba(0, 0, 255, 0.85);
+  opacity: 0.5;
+  font-size: 2.5em; 
+}
+
+p::after {
+  font-family: 'Lobster Two', serif; 
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffffff;
+  text-shadow: -2px 2px 0 rgba(255, 255, 255, 0.5),
+               -4px 4px 3px rgba(255, 0, 255, 0.85),
+               -6px 6px 3px rgba(0, 0, 255, 0.85);
+  z-index: -2;
+  font-size: 2.5em; 
+}
+
+#player-UI {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 30vw;
+  background-color: rgb(41, 41, 41);
+  border-color: cyan;
+  border-width: 2px;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#top-section {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  flex-grow: 1;
+  margin: 1em;
+}
+
+.top-cards {
+  flex: 0 1 15%;
+  flex-direction: column;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: right;
+
+}
+
+#title-card {
+  font-size: larger;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: 6em;
+}
+
+.scorecard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  height: 50%;
+}
+
+#playerScoreCard{
+  margin-right: 1em;
+}
+
+#computerScoreCard{
+  margin-right: 6em;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap');
+
+.retro-text {
+  font-family: 'Lobster Two', serif;
+  font-size: 1em;
+  position: relative;
+  color: #ffffff;
+  text-shadow: -.4px .4px 0 #0038f0,
+    -.75px .75px 0 #000000,
+    -1px 1px 0 #67cee8;
+  transform: skewX(-10deg);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.selection {
+  display: inline-block;
+  background-color: #000000;
+  border: 2px solid #67cee8;
+  border-radius: 5px;
+  box-shadow: -2px 2px 0 #0038f0, -4px 4px 0 #000000, -6px 6px 0 #67cee8;
+  font-family: 'Lobster Two', serif;
+  font-size: 1em;
+  color: #ffffff;
+  text-shadow: -1px 1px 0 #0038f0, -2px 2px 0 #000000, -3px 3px 0 #67cee8;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: skewX(-10deg);
+  width: 25%;
+  min-width: 6em;
+  height: auto;
+  max-width: 8em;
+  max-height: 5em;
+  padding: 0.7em 0.5em;
+  margin: 0 0.5em;
+}
+
+#lower-section {
+  display: flex;
+  flex-grow: 1;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+.interactions {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+#input-section, #results-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-start;
+  height: 4em;
+  width: 50%; 
+  box-sizing: border-box;
+}

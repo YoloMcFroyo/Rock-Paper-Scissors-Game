@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="game.js" defer></script>
+</head>
+
+<body>
+  <div id="player-UI">
+    <div id="top-section">
+      <div class="top-cards" id="title-card">
+        <h1>Rock</h1>
+        <h1>Paper</h1>
+        <h1>Scissors</h1>
+      </div>
+      <div class="top-cards scorecard" id="playerScoreCard">
+        <div class="retro-text">Player Score</div>
+      </div>
+      <div class="top-cards scorecard" id="computerScoreCard">
+        <div class="retro-text">Computer Score</div>
+      </div>
+    </div>
+    <div id="lower-section">
+      <div class="interactions" id="input-section">
+        <p style="color: white;">&#8212;Fighting Hand&#8212;</p>
+        <div id="button-container">
+          <button class="selection" id="rock-btn" data-choice="rock">Rock</button>
+          <button class="selection" id="paper-btn" data-choice="paper">Paper</button>
+          <button class="selection" id="scissors-btn" data-choice="scissors">Scissors</button>
+        </div>
+      </div>
+      <div class="interactions" id="results-section">
+        <p style="color: white;">&#8212;Results&#8212;</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
